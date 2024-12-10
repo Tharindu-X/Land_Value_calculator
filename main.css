@@ -1,11 +1,14 @@
 /* Global Body Styles */
 body {
-  font-family: "Playfair Display", serif; /* Elegant, readable serif font */
+  font-family: "Bree Serif", serif;
+  font-weight: 200;
+  font-style: normal;
+  background-color: #33313a; /* Light background color */
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default padding */
   line-height: 1.6; /* Improve readability */
-  background-color: #f4f4f9; /* Light background color for clean look */
-  color: #211717; /* Default text color */
+
+  color: #f0e0e0; /* Default text color */
   height: 100vh; /* Full height of the viewport */
   display: flex;
   flex-direction: column; /* Ensure the body takes up the full height */
@@ -25,17 +28,12 @@ body {
 
 /* Header Styling */
 header {
-  background: hsl(225, 43%, 36%); /* Deep blue background */
+  background: hsl(225, 90%, 27%); /* Deep blue background */
+  background-image: url("img.jpg");
   color: #fff; /* White text */
   padding: 1rem 0;
   text-align: center;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-  /* Text outline using text-shadow */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7),
-    /* Slight shadow for outline */ -1px -1px 2px rgba(0, 0, 0, 0.7),
-    /* Slight shadow for outline */ 1px -1px 2px rgba(0, 0, 0, 0.7),
-    /* Slight shadow for outline */ -1px 1px 2px rgba(0, 0, 0, 0.7),
-    /* Slight shadow for outline */ 0 0 25px rgba(0, 0, 0, 0.5); /* Larger shadow for enhanced outline */
 }
 
 .the-type {
@@ -44,22 +42,16 @@ header {
   margin: 0 auto;
 }
 .typeing {
-  font-family: "Pacifico", cursive;
-  font-weight: 400;
+  font-family: "Bree Serif", serif;
+  font-weight: 100;
   font-style: normal;
   font-size: 20px;
-  /* display: inline; */
-
-  /* -webkit-background-clip: text;
-    -moz-background-clip: text;
-    color: transparent;
-    text-transform: capitalize; */
 }
 
-.submit-district-button {
-  background-color: #333; /* Dark background color */
+.submit-button {
+  background-color: #5d65ed; /* Dark background color */
   color: #fff; /* White text color */
-  padding: 10px 20px; /* Padding for button size */
+  padding: 5px 10px; /* Padding for button size */
   border: none; /* Remove button border */
   border-radius: 5px; /* Rounded corners */
   cursor: pointer; /* Change cursor on hover */
@@ -85,16 +77,11 @@ header {
 }
 
 header h1 {
-  font-size: 2.5rem;
-  font-family: "Amasis MT Pro Medium", serif; /* Professional serif font */
+  font-size: 3rem;
+  font-family: "Bree Serif", serif;
+  font-weight: 400;
+  font-style: normal;
 }
-
-header p {
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
-  font-family: "Amasis MT Pro Medium", serif;
-}
-
 /* Navigation Styles */
 nav {
   margin: 0;
@@ -142,6 +129,7 @@ footer {
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow at the top */
+  font-weight: 100;
 }
 
 footer nav a {
@@ -187,15 +175,17 @@ section {
 
 /* Slider Container Styling */
 .slider-container {
-  width: 50%; /* Adjust width as per your design */
-  max-width: 500px; /* Optional: Max width for the slider */
-  position: absolute; /* Position the slider absolutely */
-  right: 1%; /* Position it on the right side */
-  top: 55%; /* Center vertically */
-  transform: translateY(-50%); /* Offset for exact centering */
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  /* position: absolute; */
+  /* right: 1%;  */
+  /* top: 55%;  */
+  /* transform: translateY(-20%); */
   overflow: hidden;
-  border: 2px solid #b8a9a9;
+  /* border: 2px solid #b8a9a9; */
   border-radius: 10px;
+  margin-top: 20px;
 }
 
 /* Slider styling */
@@ -204,12 +194,14 @@ section {
   transition: transform 1s ease-in-out;
   will-change: transform;
   width: 100%; /* Ensure it spans full width */
+  height: 100%;
 }
 
 /* Each slide image styling */
 .slide {
   width: 100%;
-  height: 300px; /* Adjust height as needed */
+  /* height: 100%; */
+  height: 340px; /* Adjust height as needed */
   object-fit: cover; /* Ensures the image covers the area */
 }
 
@@ -227,4 +219,7 @@ section {
   main {
     padding-left: 10%; /* Adjust for smaller screen size */
   }
+}
+.topic {
+  font-size: 20px;
 }

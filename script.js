@@ -126,7 +126,7 @@ function calculatePrediction() {
         <p>Annual Perch Land Price Growth: ${averageGrowth * 100}%</p>
         <p>Anticipated Rise in Land Value for Next ${years} years: Rs. ${anticipatedRise.toFixed(2)}</p>
         <p>Estimated Terminal Value of Land in ${years} Years: Rs. ${predictedPrice.toFixed(2)}</p>
-        <p>Rounded Value of Your Land after ${years} years: Rs. ${Math.round(predictedPrice / 500000.0) * 500000.0}</p>
+        <p class="border p-2 border-blue-500 inline-block">Rounded Value of Your Land after ${years} years: Rs. ${Math.round(predictedPrice / 500000.0) * 500000.0}</p>
     `;
 }
 // Function to reset the form and hide all sections
@@ -199,4 +199,8 @@ let autoTypeText = () => {
 setInterval(() => {
     autoTypeText()
 },150)
+
+
+
+// ----------------------------------------------------
 

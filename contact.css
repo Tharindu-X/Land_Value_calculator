@@ -1,0 +1,164 @@
+/* Global Body Styles */
+body {
+  font-family: "Bree Serif", serif;
+  font-weight: 200;
+  font-style: normal;
+  background-color: #33313a; /* Light background color */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  line-height: 1.6; /* Improve readability */
+
+  color: #f0e0e0; /* Default text color */
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  flex-direction: column; /* Ensure the body takes up the full height */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  width: 100%; /* Ensure content fits within the window */
+  text-align: left; /* Left-align the content */
+  letter-spacing: 1.5px; /* Add spacing between letters for readability */
+  text-transform: uppercase; /* Make text uppercase */
+  margin-top: 20px; /* Space from the top */
+  font-weight: bold; /* Make text bold for emphasis */
+
+  /* Ensure responsiveness */
+  @media (max-width: 768px) {
+    background-attachment: scroll; /* Disable fixed background on smaller screens for better performance */
+  }
+}
+
+/* Header Styling */
+header {
+  background: hsl(225, 90%, 27%); /* Deep blue background */
+  background-image: url("img.jpg");
+  color: #fff; /* White text */
+  padding: 1rem 0;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+.the-type {
+  width: 80%;
+  height: 80px;
+  margin: 0 auto;
+}
+.typeing {
+  font-family: "Bree Serif", serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 20px;
+}
+
+
+/* Keyframes for typing effect */
+@keyframes typing {
+  from {
+    width: 0; /* Start with no text visible */
+  }
+  to {
+    width: 100%; /* End with the full text visible */
+  }
+}
+
+/* Keyframes for blinking cursor effect */
+@keyframes blink {
+  50% {
+    border-color: transparent; /* Hide the cursor */
+  }
+}
+
+header h1 {
+  font-size: 3rem;
+  font-family: "Bree Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+/* Navigation Styles */
+nav {
+  margin: 0;
+  padding: 0.5rem;
+  background: #35424a; /* Darker background for navigation */
+  text-align: center;
+}
+
+nav a {
+  color: #fff; /* White text for links */
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: #f4f4f9; /* Light color on hover */
+}
+
+/* Main Content */
+main {
+  flex-grow: 1;
+  overflow-y: auto; /* Allow scrolling when content exceeds screen height */
+  padding-bottom: 60px; /* Space for footer */
+  display: flex;
+  justify-content: flex-start; /* Align content to the left */
+  padding-left: 20%; /* Space for the slider on the right */
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Full viewport height */
+  min-height: 100vh; /* Ensures the background covers at least the viewport height */
+  width: 100%; /* Ensure the background spans the entire width */
+  color: white; /* White text for readability over the background */
+}
+
+/* Footer Styling */
+footer {
+  padding: 20px;
+  background-color: #333; /* Dark background for footer */
+  color: white;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow at the top */
+  font-weight: 100;
+}
+
+footer nav a {
+  color: #00bcd4; /* Cyan link color */
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+footer nav a:hover {
+  color: #f4f4f9; /* Light text on hover */
+  text-decoration: underline;
+}
+
+/* Optional: Styling for any specific content sections inside main */
+section {
+  padding: 20px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Light transparent background for readability */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-bottom: 20px;
+}
+
+/* Optional: Mobile responsive tweaks */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem; /* Smaller header on mobile */
+  }
+
+  nav a {
+    font-size: 0.9rem; /* Smaller font size for mobile navigation */
+  }
+
+  main {
+    padding-left: 10%; /* Less padding on mobile */
+  }
+}
