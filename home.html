@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LandValuePro - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+    <style>
+      /* Basic styling */
+      #district-selection,
+      #gradient-section,
+      #budget-section,
+      #predictive-analysis {
+        margin: 20px;
+      }
+      #gradient-result,
+      #costs-result,
+      #predictive-result {
+        margin-top: 20px;
+      }
+    </style>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="display-flex flex-row items-center justify-center">
+      <h1>Welcome to the Land Prediction Calculator</h1>
+      <div class="the-type">
+        <h1 class="typeing" data-typeingText="Empowering decisions with data-driven land forecasts."></h1>
+      </div>
+    </header>
+    <!-- District Selection -->
+    <div id="district-selection">
+      <h3>District Selection</h3>
+      <label for="district"
+        >Enter your district (Katunayke/Other District):
+      </label>
+      <input type="text" id="district" />
+      <button onclick="selectDistrict()" class="submit-district-button">Submit</button>
+    </div>
+    <div class="relative" >
+      <div class="left-content">
+        <!-- Your left content goes here (e.g., text, forms, etc.) -->
+      </div>
+      <!-- Slider Section -->
+      <div class="slider-container">
+        <div class="slider">
+          <img src="3.jpg" alt="Image 1" class="slide" />
+          <img src="4.jpg" alt="Image 2" class="slide" />
+          <img src="5.jpeg" alt="Image 3" class="slide" />
+          <img src="6.jpg" alt="Image 4" class="slide" />
+          <img src="7.jpg" alt="Image 5" class="slide" />
+          <img src="8.jpeg" alt="Image 6" class="slide" />
+          <img src="9.jpeg" alt="Image 7" class="slide" />
+          <img src="9.jpg" alt="Image 7" class="slide" />
+        </div>
+      </div> -->
+      <!-- <div class="image">
+            <img src="10.jpeg" alt="Image 0">
+        </div>
+    </div>
+
+    <!-- Gradient Section -->
+    <div id="gradient-section" style="display: none">
+      <h3>Gradient Calculation</h3>
+      <div id="area-selection">
+        <label for="area"
+          >Select the area (1-Urban, 2-Little away, 3-2km away, 4-10km away,
+          5-30km away):
+        </label>
+        <input type="number" id="area" />
+        <button onclick="calculateGradient()">
+          Calculate Average Gradient
+        </button>
+      </div>
+      <div id="gradient-result"></div>
+    </div>
+
+    <!-- Budget Section -->
+    <div id="budget-section" style="display: none">
+      <h3>Budget & Costs Calculation</h3>
+      <label for="budget">Enter your budget: Rs. </label>
+      <input type="number" id="budget" />
+      <button onclick="calculateCosts()">Submit Budget</button>
+      <div id="costs-result"></div>
+    </div>
+
+    <!-- Predictive Analysis Section -->
+    <div id="predictive-analysis" class="relative" style="display: none">
+      <h3>Predictive Analysis</h3>
+      <label for="price">Enter today's price per perch of land: Rs. </label>
+      <input type="number" id="price" />
+      <label for="years">Enter number of years to predict: </label>
+      <input type="number" id="years" />
+      <button onclick="calculatePrediction()">Submit Prediction</button>
+      <div id="predictive-result"></div>
+    </div>
+
+    <!-- Reset Button -->
+    <div id="reset-section" class="w-full absolute bottom-28"  style="text-align: center; margin-top: 20px">
+      <button onclick="resetForm()">Reset All</button>
+    </div>
+
+    <br />
+
+    <footer class="fixed bottom-0 w-full bg-gray-800 text-white py-4">
+      <p>&copy; 2024 LandValuePro. All rights reserved.</p>
+      <nav>
+        <a href="home.html">Home</a> | <a href="about.html">About Us</a> |
+        <a href="contact.html">Contact</a> |
+        <a href="services.html">Terms of Service</a>
+      </nav>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,230 @@
+/* Global Body Styles */
+body {
+  font-family: "Playfair Display", serif; /* Elegant, readable serif font */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  line-height: 1.6; /* Improve readability */
+  background-color: #f4f4f9; /* Light background color for clean look */
+  color: #211717; /* Default text color */
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  flex-direction: column; /* Ensure the body takes up the full height */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  width: 100%; /* Ensure content fits within the window */
+  text-align: left; /* Left-align the content */
+  letter-spacing: 1.5px; /* Add spacing between letters for readability */
+  text-transform: uppercase; /* Make text uppercase */
+  margin-top: 20px; /* Space from the top */
+  font-weight: bold; /* Make text bold for emphasis */
+
+  /* Ensure responsiveness */
+  @media (max-width: 768px) {
+    background-attachment: scroll; /* Disable fixed background on smaller screens for better performance */
+  }
+}
+
+/* Header Styling */
+header {
+  background: hsl(225, 43%, 36%); /* Deep blue background */
+  color: #fff; /* White text */
+  padding: 1rem 0;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  /* Text outline using text-shadow */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7),
+    /* Slight shadow for outline */ -1px -1px 2px rgba(0, 0, 0, 0.7),
+    /* Slight shadow for outline */ 1px -1px 2px rgba(0, 0, 0, 0.7),
+    /* Slight shadow for outline */ -1px 1px 2px rgba(0, 0, 0, 0.7),
+    /* Slight shadow for outline */ 0 0 25px rgba(0, 0, 0, 0.5); /* Larger shadow for enhanced outline */
+}
+
+.the-type {
+  width: 80%;
+  height: 80px;
+  margin: 0 auto;
+}
+.typeing {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  /* display: inline; */
+
+  /* -webkit-background-clip: text;
+    -moz-background-clip: text;
+    color: transparent;
+    text-transform: capitalize; */
+}
+
+.submit-district-button {
+  background-color: #333; /* Dark background color */
+  color: #fff; /* White text color */
+  padding: 10px 20px; /* Padding for button size */
+  border: none; /* Remove button border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Change cursor on hover */
+  font-size: 16px; /* Font size */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Keyframes for typing effect */
+@keyframes typing {
+  from {
+    width: 0; /* Start with no text visible */
+  }
+  to {
+    width: 100%; /* End with the full text visible */
+  }
+}
+
+/* Keyframes for blinking cursor effect */
+@keyframes blink {
+  50% {
+    border-color: transparent; /* Hide the cursor */
+  }
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-family: "Amasis MT Pro Medium", serif; /* Professional serif font */
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  font-family: "Amasis MT Pro Medium", serif;
+}
+
+/* Navigation Styles */
+nav {
+  margin: 0;
+  padding: 0.5rem;
+  background: #35424a; /* Darker background for navigation */
+  text-align: center;
+}
+
+nav a {
+  color: #fff; /* White text for links */
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: #f4f4f9; /* Light color on hover */
+}
+
+/* Main Content */
+main {
+  flex-grow: 1;
+  overflow-y: auto; /* Allow scrolling when content exceeds screen height */
+  padding-bottom: 60px; /* Space for footer */
+  display: flex;
+  justify-content: flex-start; /* Align content to the left */
+  padding-left: 20%; /* Space for the slider on the right */
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Full viewport height */
+  min-height: 100vh; /* Ensures the background covers at least the viewport height */
+  width: 100%; /* Ensure the background spans the entire width */
+  color: white; /* White text for readability over the background */
+}
+
+/* Footer Styling */
+footer {
+  padding: 20px;
+  background-color: #333; /* Dark background for footer */
+  color: white;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow at the top */
+}
+
+footer nav a {
+  color: #00bcd4; /* Cyan link color */
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+footer nav a:hover {
+  color: #f4f4f9; /* Light text on hover */
+  text-decoration: underline;
+}
+
+/* Optional: Styling for any specific content sections inside main */
+section {
+  padding: 20px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Light transparent background for readability */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-bottom: 20px;
+}
+
+/* Optional: Mobile responsive tweaks */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem; /* Smaller header on mobile */
+  }
+
+  nav a {
+    font-size: 0.9rem; /* Smaller font size for mobile navigation */
+  }
+
+  main {
+    padding-left: 10%; /* Less padding on mobile */
+  }
+}
+
+/* Slider Container Styling */
+.slider-container {
+  width: 50%; /* Adjust width as per your design */
+  max-width: 500px; /* Optional: Max width for the slider */
+  position: absolute; /* Position the slider absolutely */
+  right: 1%; /* Position it on the right side */
+  top: 55%; /* Center vertically */
+  transform: translateY(-50%); /* Offset for exact centering */
+  overflow: hidden;
+  border: 2px solid #b8a9a9;
+  border-radius: 10px;
+}
+
+/* Slider styling */
+.slider {
+  display: flex;
+  transition: transform 1s ease-in-out;
+  will-change: transform;
+  width: 100%; /* Ensure it spans full width */
+}
+
+/* Each slide image styling */
+.slide {
+  width: 100%;
+  height: 300px; /* Adjust height as needed */
+  object-fit: cover; /* Ensures the image covers the area */
+}
+
+/* Optional: Hover effect to pause the slider */
+.slider-container:hover .slider {
+  animation-play-state: paused;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .slider-container {
+    width: 90%;
+  }
+
+  main {
+    padding-left: 10%; /* Adjust for smaller screen size */
+  }
+}
