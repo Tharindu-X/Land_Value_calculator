@@ -62,12 +62,16 @@ function selectDistrict() {
     if (district === "katunayke") {
         document.getElementById("district-selection").style.display = "none";
         document.getElementById("gradient-section").style.display = "block";
+
     } else {
         document.getElementById("district-selection").style.display = "none";
-        document.getElementById("gradient-section").style.display = "none";
-        document.getElementById("budget-section").style.display = "block";
+        // document.getElementById("gradient-section").style.display = "none";
+        // document.getElementById("input-section").style.display = "block";
+        // document.getElementById("budget-section").style.display = "block";
+        document.getElementById("input-section-other-district").style.display = "block"; 
     }
 }
+
 
 // Function to calculate gradient for Katunayke
 function calculateGradient() {
@@ -77,6 +81,25 @@ function calculateGradient() {
     if (!values) {
         alert("Invalid area selection.");
         return;
+    }
+
+    const gradient = calculateAverageGradient(values);
+    document.getElementById("gradient-result").innerHTML = `<p>Calculated Average Gradient: Rs. ${gradient.toFixed(2)}</p>`;
+    document.getElementById("budget-section").style.display = "block";
+}
+
+// Function to calculate gradient for other districts
+function calculateGradientOtherDistrict() {
+    const years = parseInt(document.getElementById("years-other-district").value);
+    const values = [];
+
+    for (let i = 0; i < years; i++) {
+        const value = parseFloat(prompt(`Enter the land value for year ${i + 1}:`));
+        if (isNaN(value) || value <= 0) {
+            alert("Invalid value entered. Please enter valid land values.");
+            return;
+        }
+        values.push(value);
     }
 
     const gradient = calculateAverageGradient(values);
@@ -148,6 +171,7 @@ function resetForm() {
     document.getElementById("gradient-section").style.display = "none";
     document.getElementById("budget-section").style.display = "none";
     document.getElementById("predictive-analysis").style.display = "none";
+    document.getElementById("input-section-other-district").style.display = "none";
 }
 
 
@@ -203,4 +227,24 @@ setInterval(() => {
 
 
 // ----------------------------------------------------
+document.addEventListener("DOMContentLoaded", function () {
+    const teamRow = document.getElementById("team-row");
+    let scrollAmount = 0;
+    const scrollSpeed = 2; // Speed of scrolling (pixels per interval)
+    const scrollInterval = 30; // Time interval in ms
+    let scrollDirection = 1; // 1 for right, -1 for left
 
+    function autoScroll() {
+      if (teamRow.scrollWidth > teamRow.clientWidth) {
+        scrollAmount += scrollSpeed * scrollDirection;
+        teamRow.scrollLeft = scrollAmount;
+
+        // Reverse direction if reaching start or end
+        if (teamRow.scrollLeft + teamRow.clientWidth >= teamRow.scrollWidth || teamRow.scrollLeft <= 0) {
+          scrollDirection *= -1; // Change direction
+        }
+      }
+    }
+
+    setInterval(autoScroll, scrollInterval);
+  });

@@ -136,12 +136,7 @@ footer nav a:hover {
 /* Optional: Styling for any specific content sections inside main */
 section {
   padding: 20px;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.7
-  ); /* Light transparent background for readability */
+  background-color: rgba(201, 185, 185, 0.7); /* Light transparent background for readability */
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   margin-bottom: 20px;
@@ -162,131 +157,176 @@ section {
   }
 }
 
-.section-team {
-  font-family: "Poppins", sans-serif;
-  padding: 1;
-  width: 80%;
-  height: 900px;
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-
-  margin-bottom: 80px;
-  margin-top: 10px;
-
-  border: 1px;
-  
-}
-
-.section-team .row {
-  display: flex; /* Enable flexbox for horizontal layout */
-  flex-wrap: nowrap; /* Prevent wrapping to a new line */
-  gap: 20px; /* Add space between team members */
-  overflow-x: auto; /* Enable horizontal scrolling if needed */
-  
-  scroll-behavior: smooth; /* Smooth scrolling */
-  -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
-}
-
-.section-team .header-section {
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.section-team .header-section .small-title {
-  margin-bottom: 25px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #3e64ff;
-  text-align: center;
-}
-
-.section-team .header-section .title {
-  font-weight: 700;
-  font-size: 32px;
-  align-items: center;
-
-  justify-content: center;
-  color: #42444a;
-  margin-top: -10px;
-  
-}
-
-.section-team .single-person {
-  margin-top: 10px;
-  padding: 30px;
-  background-color: #7e8594;
-  border-radius: 20px;
-  flex: 0 0 auto; /* Prevent shrinking and set width automatically */
-  width: 300px; /* Ensure a uniform width for all items */
-  height: 480px;
-  
-  
-}
-
-.section-team .single-person:hover {
-  background: linear-gradient(to right, #016cec, #00b5f7);
-}
-
-.section-team .single-person .person-image {
-  position: relative;
-  margin-bottom: 50px;
-  border-radius: 50%;
-  border: 4px dashed transparent;
-  transition: padding 0.3s;
-  margin-top: -20px;
-}
-
-.section-team .single-person:hover .person-image {
-  padding: 12px;
-  border: 4px dashed #fff;
-}
-
-.section-team .single-person .person-image img {
+/* =24px */
+.info-card-container {
   width: 100%;
-  border-radius: 50%;
+  min-height: 100%;
+  height: 80rem;
+  overflow: hidden;
+  background: linear-gradient(to right, #0C1B23 0%, #0C1B23 70%, #fff 70%, #fff 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="$white", endColorstr="$white",GradientType=1 );
+  /* IE6-9 */
+  position: relative ;
+  left: 50px;
 }
 
-.section-team .single-person .person-image .icon {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  display: inline-block;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  background: linear-gradient(to right, #016cec, #00b5f7);
-  color: #fff;
-  border-radius: 50%;
-  font-size: 24px;
-}
-
-.section-team .single-person:hover .person-image .icon {
-  background: none;
-  background-color: #4161d4;
-  color: #016cec;
-}
-
-.section-team .single-person .person-info .full-name {
-  margin-bottom: 10px;
-  font-size: 28px;
-  font-weight: 700;
-  margin-top: -20px;
-}
-
-.section-team .single-person .person-info .speciality {
-  text-transform: uppercase;
-  font-size: 14px;
-  color: #2c3541;
+.info-card {
+  min-width: 80%;
+  max-width: 90rem;
+  min-height: 70%;
+  height: 20px;
+  margin: 0 auto;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0.01rem 0.01rem 1rem #0C1B23;
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);
   
- 
 }
 
-.section-team .single-person:hover .full-name,
-.section-team .single-person:hover .speciality {
-  color: #e4d1d1;
+.info-card__content {
+  float: left;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
+
+.info-card__image-exposure {
+  width: 45%;
+}
+
+.info-card__bio {
+  width: 100%;
+  padding: 10px;
+  height: auto;
+  font-family: "Domine", serif;
+  text-align: left;
+}
+.info-card__bio--title {
+  color: #141D1D;
+  font-size: 3rem;
+  font-weight: 300;
+  text-align: center;
+  margin-top: -30px;
+}
+.info-card__bio--copy {
+  color: #636967;
+  line-height: 2;
+}
+.info-card__bio--copylast {
+  color: #464b4a;
+  line-height: 2;
+  font-style: italic;
+}
+
+/* .info-card__image-exposure__item {
+  background-image: url("Term_img.webp");
+  background-color: #fff;
+  background-position: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  position: absolute;
+  opacity: 0.9;
+} */
+
+
+
+
+.close {
+  width: 2rem;
+  height: 0.25rem;
+  background-color: #000;
+  position: absolute;
+  top: 2.5rem;
+  right: 2rem;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+.close:before {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 0.25rem;
+  background: #ff0000;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: rotate(-90deg);
+}
+
+@-webkit-keyframes blendAnimate {
+  0% {
+    background-position: 0;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0;
+  }
+}
+
+@keyframes blendAnimate {
+  0% {
+    background-position: 0;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0;
+  }
+}
+
+
+
+
+.word {
+    color: #364959;
+    font-weight: 800;
+    margin-top: 20px;
+    border-bottom: 2px solid #bdc3c7;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 20px
+}
+
+.paragrph{
+    color: #32353e;
+    text-align: justify;
+    font-weight: 100;
+}
+.lastparagrph{
+    color: #252831;
+    font-weight: 100;
+}
+ul {
+    margin: 10px 0;  
+    font-family:'Times New Roman', Times, serif;
+    text-align: justify;
+    font-weight: 100;
+}
+
+ul {
+    padding-left: 20px;
+    list-style-type: disc;
+    color: #4a4d55;
+    
+}
+
+.link{
+    color: #2980b9;
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+

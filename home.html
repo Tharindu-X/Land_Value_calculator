@@ -77,7 +77,9 @@
           <!-- Gradient Section -->
           <div id="gradient-section" style="display: none">
             <h3 class="topic">Gradient Calculation</h3>
-            <div id="area-selection">
+
+            <!-- Katunayke Area Selection -->
+            <div id="area-selection" style="display: none">
               <label for="area"
                 >Select the area (1-Urban, 2-Little away, 3-2km away, 4-10km
                 away, 5-30km away):
@@ -87,10 +89,29 @@
                 Calculate Average Gradient
               </button>
             </div>
+
+            <!-- Other District Input -->
+            <div id="other-district-section" style="display: none">
+              <label for="num-years">Enter the number of years of data:</label>
+              <input type="number" class="text-black" id="num-years" />
+              <button onclick="generateYearInputs()" class="submit-button">
+                Submit Years
+              </button>
+              <div id="year-inputs"></div>
+              <button
+                onclick="calculateOtherDistrictGradient()"
+                class="submit-button"
+              >
+                Calculate Average Gradient
+              </button>
+            </div>
+
             <div id="gradient-result"></div>
           </div>
 
           <hr class="bg-black-300" />
+
+          <div id="input-section" style="display: none"></div>
 
           <!-- Budget Section -->
           <div id="budget-section" style="display: none">
