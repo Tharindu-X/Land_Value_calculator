@@ -175,7 +175,12 @@ section {
   margin-top: 10px;
 
   border: 1px;
-  
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; 
+  gap: 20px;
 }
 
 .section-team .row {
@@ -183,7 +188,7 @@ section {
   flex-wrap: nowrap; /* Prevent wrapping to a new line */
   gap: 20px; /* Add space between team members */
   overflow-x: auto; /* Enable horizontal scrolling if needed */
-  
+
   scroll-behavior: smooth; /* Smooth scrolling */
   -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
 }
@@ -211,7 +216,6 @@ section {
   justify-content: center;
   color: #42444a;
   margin-top: -10px;
-  
 }
 
 .section-team .single-person {
@@ -219,11 +223,10 @@ section {
   padding: 30px;
   background-color: #7e8594;
   border-radius: 20px;
-  flex: 0 0 auto; /* Prevent shrinking and set width automatically */
-  width: 300px; /* Ensure a uniform width for all items */
+  flex: 0 0 auto;
+  gap: 20px;
+  width: 300px; 
   height: 480px;
-  
-  
 }
 
 .section-team .single-person:hover {
@@ -282,11 +285,66 @@ section {
   text-transform: uppercase;
   font-size: 14px;
   color: #2c3541;
-  
- 
 }
 
 .section-team .single-person:hover .full-name,
 .section-team .single-person:hover .speciality {
   color: #e4d1d1;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+@import "https://cdn.jsdelivr.net/npm/open-props@1.6.17/open-props.min.css";
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  gap: 1em;
+  font-family: "Montserrat";
+}
+.splide {
+  max-width: 70vw;
+  height: 500px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; */
+}
+.splide__slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.splide__slide__container {
+  width: 300px;
+  height: 480px;
+  /* background-color: red; */
+  border-radius: 0.4em;
+  display: flex;
+  align-items: end;
+  cursor: pointer;
+  transition: background-color 250ms ease-in-out,
+    height 300ms var(--ease-bounce-1);
+}
+.splide__slide__container h1 {
+  font-family: "Montserrat";
+  margin-left: 1em;
+  color: white;
+}
+ul:has(.splide__slide__container:hover)
+  .splide__slide__container:not(.splide__slide__container:hover) {
+  background-color: gray;
+  height:  480px;
+}
+
+.splide__slide__container h1 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 250ms ease-in-out, transform 250ms var(--ease-bounce-1);
+}
+.splide__slide__container:hover h1 {
+  opacity: 1;
+  transform: translateY(0px);
 }
