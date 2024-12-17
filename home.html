@@ -74,12 +74,10 @@
             </div>
           </div>
 
-          <!-- Gradient Section -->
+          <!-- Gradient Section for katunayke -->
           <div id="gradient-section" style="display: none">
             <h3 class="topic">Gradient Calculation</h3>
-
-            <!-- Katunayke Area Selection -->
-            <div id="area-selection" style="display: none">
+            <div id="area-selection">
               <label for="area"
                 >Select the area (1-Urban, 2-Little away, 3-2km away, 4-10km
                 away, 5-30km away):
@@ -89,26 +87,36 @@
                 Calculate Average Gradient
               </button>
             </div>
-
-            <!-- Other District Input -->
-            <div id="other-district-section" style="display: none">
-              <label for="num-years">Enter the number of years of data:</label>
-              <input type="number" class="text-black" id="num-years" />
-              <button onclick="generateYearInputs()" class="submit-button">
-                Submit Years
-              </button>
-              <div id="year-inputs"></div>
-              <button
-                onclick="calculateOtherDistrictGradient()"
-                class="submit-button"
-              >
-                Calculate Average Gradient
-              </button>
-            </div>
-
             <div id="gradient-result"></div>
           </div>
 
+          <!-- Input Section for Other District -->
+          <div id="input-section-other-district" style="display: none">
+            <h3 class="topic">Gradient Calculation for Other Districts</h3>
+            <label for="years-other-district"
+              >Enter the number of years of data you have:</label
+            >
+            <input type="number" class="text-black" id="years-other-district" />
+            <button onclick="enterOtherDistrictData()" class="submit-button">
+              Enter Data
+            </button>
+          </div>
+
+          <!-- Data Input Section for Other District -->
+          <div id="data-input-section" style="display: none">
+            <h3 class="topic">Enter Land Values</h3>
+            <div id="yearly-values"></div>
+            <button
+              onclick="calculateGradientForOtherDistrict()"
+              class="submit-button"
+            >
+              Calculate Average Gradient
+            </button>
+          </div>
+
+          <!-- Gradient Result Section -->
+          <div id="gradient-result"></div>
+          
           <hr class="bg-black-300" />
 
           <div id="input-section" style="display: none"></div>

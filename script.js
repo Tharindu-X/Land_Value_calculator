@@ -82,30 +82,53 @@ function calculateGradient() {
         alert("Invalid area selection.");
         return;
     }
-
     const gradient = calculateAverageGradient(values);
     document.getElementById("gradient-result").innerHTML = `<p>Calculated Average Gradient: Rs. ${gradient.toFixed(2)}</p>`;
     document.getElementById("budget-section").style.display = "block";
 }
+// Function to calculate gradient for other
+function enterOtherDistrictData() {
+      const years = parseInt(document.getElementById("years-other-district").value, 10);
+      const dataInputSection = document.getElementById("data-input-section");
+      const yearlyValuesDiv = document.getElementById("yearly-values");
 
-// Function to calculate gradient for other districts
-function calculateGradientOtherDistrict() {
-    const years = parseInt(document.getElementById("years-other-district").value);
+      if (years > 0) {
+        yearlyValuesDiv.innerHTML = "";
+        for (let i = 1; i <= years; i++) {
+          yearlyValuesDiv.innerHTML += `<div>Year ${i}: <input type='number' class='text-black' id='year-${i}' /></div>`;
+        }
+        dataInputSection.style.display = "block";
+      } else {
+        alert("Please enter a valid number of years.");
+      }
+    }
+ 
+// Function to calculate gradient for "Other District"
+function calculateGradientForOtherDistrict() {
+    const years = parseInt(document.getElementById("years-other-district").value, 10);
     const values = [];
 
-    for (let i = 0; i < years; i++) {
-        const value = parseFloat(prompt(`Enter the land value for year ${i + 1}:`));
-        if (isNaN(value) || value <= 0) {
-            alert("Invalid value entered. Please enter valid land values.");
+    // Collect the year values from the input fields
+    for (let i = 1; i <= years; i++) {
+        const yearValue = parseFloat(document.getElementById(`year-${i}`).value);
+        if (!isNaN(yearValue)) {
+            values.push(yearValue);
+        } else {
+            alert(`Please enter a valid value for Year ${i}.`);
             return;
         }
-        values.push(value);
     }
 
+    // Calculate the average gradient
     const gradient = calculateAverageGradient(values);
-    document.getElementById("gradient-result").innerHTML = `<p>Calculated Average Gradient: Rs. ${gradient.toFixed(2)}</p>`;
-    document.getElementById("budget-section").style.display = "block";
-}
+
+    if (gradient !== 0) {
+        // Display the result of the gradient calculation
+        document.getElementById("gradient-result").innerHTML = `<p>Calculated Average Gradient: Rs. ${gradient.toFixed(2)}</p>`;
+        // Show the Budget Section after calculation
+        document.getElementById("budget-section").style.display = "block";
+    }
+}   
 
 // Function to calculate costs
 function calculateCosts() {
@@ -172,10 +195,8 @@ function resetForm() {
     document.getElementById("budget-section").style.display = "none";
     document.getElementById("predictive-analysis").style.display = "none";
     document.getElementById("input-section-other-district").style.display = "none";
+    
 }
-
-
-
 
     const slider = document.querySelector('.slider');
     const slides = document.querySelectorAll('.slide');
