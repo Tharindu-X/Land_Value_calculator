@@ -201,7 +201,7 @@ section {
 .slide {
   width: 100%;
   /* height: 100%; */
-  height: 340px; /* Adjust height as needed */
+  height: 400px; /* Adjust height as needed */
   object-fit: cover; /* Ensures the image covers the area */
 }
 

@@ -83,6 +83,7 @@ function selectDistrict() {
 function calculateGradient() {
   const area = document.getElementById("area").value;
   const values = katunaykeData[area];
+  input_values = values;
 
   if (!values) {
     alert("Invalid area selection.");
@@ -148,7 +149,7 @@ function calculateGradientForOtherDistrict() {
       "gradient-result-other"
     ).innerHTML = `<p>Calculated Average Gradient: Rs. ${gradient.toFixed(
       2
-    )}</p>`;
+    )}</p><hr class="bg-black-300" />`;
     // Show the Budget Section after calculation
     document.getElementById("budget-section").style.display = "block";
   }
@@ -162,9 +163,13 @@ function calculateCosts() {
     return;
   }
 
-  const totalStampfees = budget * 0.015;
-  const lawyerFees = budget * 0.01;
-  const averageSurveyFees = 50000;
+  const stampfeeFirst100 = 0.03 * 100000;
+  const remainingAmount = budget - 100000;
+  const stampfeeRemaining = 0.04 * remainingAmount;
+  const totalStampfees = stampfeeFirst100 + stampfeeRemaining;
+
+  const lawyerFees = budget * 0.02;
+  const averageSurveyFees = (15000.0 + 50000.0) / 2;
   const fundsForLand = budget - totalStampfees - lawyerFees - averageSurveyFees;
 
   document.getElementById("costs-result").innerHTML = `
@@ -190,20 +195,37 @@ function calculatePrediction() {
     return;
   }
 
-//   const averageGrowth = 0.05;
-  const predictedPrice = price * Math.pow(1 + averageGrowth, years);
-  const anticipatedRise = predictedPrice - price;
+  const averageGradient = calculateAverageGradient(input_values);
+  const budget = parseFloat(document.getElementById("budget").value);
+
+  const stampfeeFirst100 = 0.03 * 100000;
+  const remainingAmount = budget - 100000;
+  const stampfeeRemaining = 0.04 * remainingAmount;
+
+  const totalStampfees = stampfeeFirst100 + stampfeeRemaining;
+  const lawyerFees = budget * 0.02;
+  const averageSurveyFees = (15000.0 + 50000.0) / 2;
+  const fundsForLand = budget - totalStampfees - lawyerFees - averageSurveyFees;
+  const Landprice =
+    (averageGradient * Math.round(fundsForLand / 500000.0) * 500000.0) / price;
+  const anticipatedRise = Landprice * years;
+
+  const estimatedValue =
+    anticipatedRise + Math.round(fundsForLand / 500000.0) * 500000.0;
+
+  console.log(Landprice);
 
   document.getElementById("predictive-result").innerHTML = `
-        <p>Annual Perch Land Price Growth: ${calculateAverageGradient(input_values)}</p>
+        <p>Annual Perch Land Price Growth: ${averageGradient}</p>
+        <p>Annual Perch Land Price Growth of entire land:Rs. ${Landprice}</p>
         <p>Anticipated Rise in Land Value for Next ${years} years: Rs. ${anticipatedRise.toFixed(
     2
   )}</p>
-        <p>Estimated Terminal Value of Land in ${years} Years: Rs. ${predictedPrice.toFixed(
+        <p>Estimated Terminal Value of Land in ${years} Years: Rs. ${estimatedValue.toFixed(
     2
   )}</p>
         <p class="border p-2 border-blue-500 inline-block">Rounded Value of Your Land after ${years} years: Rs. ${
-    Math.round(predictedPrice / 500000.0) * 500000.0
+    Math.round(estimatedValue / 100000) * 100000
   }</p>
     `;
 }
@@ -228,6 +250,9 @@ function resetForm() {
   document.getElementById("predictive-analysis").style.display = "none";
   document.getElementById("input-section-other-district").style.display =
     "none";
+
+  document.getElementById("data-input-section").style.display = "none";
+  document.getElementById("gradient-result-other").style.display = "none";
 }
 
 const slider = document.querySelector(".slider");
@@ -237,19 +262,19 @@ const totalSlides = slides.length;
 let slideIndex = 0;
 
 // Function to move to the next slide
-function nextSlide() {
-  slideIndex++;
+// function nextSlide() {
+//   slideIndex++;
 
-  if (slideIndex >= totalSlides) {
-    slideIndex = 0; // Reset to first slide when reaching the last one
-  }
+//   if (slideIndex >= totalSlides) {
+//     slideIndex = 0; // Reset to first slide when reaching the last one
+//   }
 
-  // Move the slider by a percentage to show the next image
-  slider.style.transform = `translateX(-${slideIndex * 100}%)`;
-}
+//   // Move the slider by a percentage to show the next image
+//   slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+// }
 
 // Change slide every 3 seconds
-setInterval(nextSlide, 3000);
+// setInterval(nextSlide, 3000);
 
 // ---------------------auto typing-----------------------
 
@@ -275,27 +300,27 @@ setInterval(() => {
 }, 150);
 
 // ----------------------------------------------------
-document.addEventListener("DOMContentLoaded", function () {
-  const teamRow = document.getElementById("team-row");
-  let scrollAmount = 0;
-  const scrollSpeed = 2; // Speed of scrolling (pixels per interval)
-  const scrollInterval = 30; // Time interval in ms
-  let scrollDirection = 1; // 1 for right, -1 for left
+// document.addEventListener("DOMContentLoaded", function () {
+//   const teamRow = document.getElementById("team-row");
+//   let scrollAmount = 0;
+//   const scrollSpeed = 2; // Speed of scrolling (pixels per interval)
+//   const scrollInterval = 30; // Time interval in ms
+//   let scrollDirection = 1; // 1 for right, -1 for left
 
-  function autoScroll() {
-    if (teamRow.scrollWidth > teamRow.clientWidth) {
-      scrollAmount += scrollSpeed * scrollDirection;
-      teamRow.scrollLeft = scrollAmount;
+//   function autoScroll() {
+//     if (teamRow.scrollWidth > teamRow.clientWidth) {
+//       scrollAmount += scrollSpeed * scrollDirection;
+//       teamRow.scrollLeft = scrollAmount;
 
-      // Reverse direction if reaching start or end
-      if (
-        teamRow.scrollLeft + teamRow.clientWidth >= teamRow.scrollWidth ||
-        teamRow.scrollLeft <= 0
-      ) {
-        scrollDirection *= -1; // Change direction
-      }
-    }
-  }
+//       // Reverse direction if reaching start or end
+//       if (
+//         teamRow.scrollLeft + teamRow.clientWidth >= teamRow.scrollWidth ||
+//         teamRow.scrollLeft <= 0
+//       ) {
+//         scrollDirection *= -1; // Change direction
+//       }
+//     }
+//   }
 
-  setInterval(autoScroll, scrollInterval);
-});
+//   setInterval(autoScroll, scrollInterval);
+// });
